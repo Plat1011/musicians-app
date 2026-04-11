@@ -1,14 +1,18 @@
 from flask import Flask, jsonify
 
-from src.api import users
+from src.api import auth, users
 from src.config import Config
+from src.core.db import close_db
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
+    app.teardown_appcontext(close_db)
+
     app.register_blueprint(users.bp)
+    app.register_blueprint(auth.bp)
 
     @app.get("/health")
     def health():
