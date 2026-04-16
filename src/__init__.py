@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 
-from src.api import auth, users
+from src.api import auth, musicians, users
 from src.config import Config
 from src.core.db import close_db
 
@@ -13,6 +13,7 @@ def create_app():
 
     app.register_blueprint(users.bp)
     app.register_blueprint(auth.bp)
+    app.register_blueprint(musicians.bp)
 
     @app.get("/health")
     def health():
