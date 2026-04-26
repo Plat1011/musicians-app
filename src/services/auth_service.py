@@ -18,4 +18,7 @@ class AuthService:
             return None
         if not check_password_hash(user["password_hash"], password):
             return None
-        return make_token(user["id"], user["role"])
+        return {
+            "token": make_token(user["id"], user["role"]),
+            "user": {"id": user["id"], "username": user["username"], "role": user["role"]},
+        }
