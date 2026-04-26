@@ -1,12 +1,12 @@
 from flask import Flask, jsonify
 
-from src.api import auth, concerts, instruments, musicians, performances, users
+from src.api import auth, concerts, instruments, musicians, pages, performances, users
 from src.config import Config
 from src.core.db import close_db
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder="../templates", static_folder="../static")
     app.config.from_object(Config)
 
     app.teardown_appcontext(close_db)
@@ -17,6 +17,7 @@ def create_app():
     app.register_blueprint(concerts.bp)
     app.register_blueprint(instruments.bp)
     app.register_blueprint(performances.bp)
+    app.register_blueprint(pages.bp)
 
     @app.get("/health")
     def health():

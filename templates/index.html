@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="home">
+    <p id="greeting"></p>
+    <p>Используйте навигацию для перехода к разделам приложения.</p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    requireAuth();
+    const u = currentUser();
+    if (u) {
+        document.getElementById('greeting').textContent =
+            'Здравствуйте, ' + u.username + '. Ваша роль: ' + u.role + '.';
+    }
+</script>
+{% endblock %}

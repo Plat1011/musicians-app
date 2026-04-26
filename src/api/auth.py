@@ -33,7 +33,7 @@ def login():
         data = LoginIn(**payload)
     except ValidationError as e:
         return jsonify({"errors": e.errors()}), 400
-    token = _service().login(data.username, data.password)
-    if token is None:
+    result = _service().login(data.username, data.password)
+    if result is None:
         return jsonify({"error": "invalid credentials"}), 401
-    return jsonify({"token": token})
+    return jsonify(result)
