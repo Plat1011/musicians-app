@@ -6,7 +6,7 @@ from src.repositories.auth_repo import AuthRepository
 from src.schemas.auth import LoginIn, RegisterIn
 from src.services.auth_service import AuthService
 
-bp = Blueprint("auth", __name__, url_prefix="/auth")
+bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
 
 def _service():

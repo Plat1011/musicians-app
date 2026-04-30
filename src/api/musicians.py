@@ -7,7 +7,7 @@ from src.repositories.musician_repo import MusicianRepository
 from src.schemas.musician import MusicianIn
 from src.services.musician_service import MusicianService
 
-bp = Blueprint("musicians", __name__, url_prefix="/musicians")
+bp = Blueprint("musicians", __name__, url_prefix="/api/musicians")
 
 
 def _service():

@@ -11,3 +11,8 @@ def index():
 @bp.get("/login")
 def login():
     return render_template("login.html")
+
+
+@bp.get("/musicians")
+def musicians_page():
+    return render_template("musicians.html")

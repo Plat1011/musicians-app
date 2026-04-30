@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Музыканты — Музыкальное агентство{% endblock %}
+
+{% block content %}
+<h2>Музыканты</h2>
+
+<div id="admin-tools" style="display: none;">
+    <div class="toolbar">
+        <button id="add-btn">Добавить музыканта</button>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Страна</th>
+            <th>Год рождения</th>
+            <th>Биография</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="musicians-tbody"></tbody>
+</table>
+
+<dialog id="form-dialog">
+    <form id="musician-form" method="dialog">
+        <h3 id="form-title">Новый музыкант</h3>
+        <input type="hidden" name="id">
+        <label>Имя <input name="name" required minlength="1" maxlength="128"></label>
+        <label>Страна <input name="country" maxlength="64"></label>
+        <label>Год рождения <input name="birth_year" type="number" min="1900" max="2100"></label>
+        <label>Биография <textarea name="bio" rows="3"></textarea></label>
+        <p class="msg" id="form-msg"></p>
+        <div class="toolbar">
+            <button type="submit">Сохранить</button>
+            <button type="button" id="cancel-btn">Отмена</button>
+        </div>
+    </form>
+</dialog>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='musicians.js') }}"></script>
+{% endblock %}
