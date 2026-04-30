@@ -7,7 +7,7 @@ from src.repositories.performance_repo import PerformanceRepository
 from src.schemas.performance import PerformanceIn
 from src.services.performance_service import PerformanceService
 
-bp = Blueprint("performances", __name__, url_prefix="/performances")
+bp = Blueprint("performances", __name__, url_prefix="/api/performances")
 
 
 def _service():

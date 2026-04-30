@@ -7,7 +7,7 @@ from src.repositories.instrument_repo import InstrumentRepository
 from src.schemas.instrument import InstrumentIn
 from src.services.instrument_service import InstrumentService
 
-bp = Blueprint("instruments", __name__, url_prefix="/instruments")
+bp = Blueprint("instruments", __name__, url_prefix="/api/instruments")
 
 
 def _service():

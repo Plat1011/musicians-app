@@ -7,7 +7,7 @@ from src.repositories.concert_repo import ConcertRepository
 from src.schemas.concert import ConcertIn
 from src.services.concert_service import ConcertService
 
-bp = Blueprint("concerts", __name__, url_prefix="/concerts")
+bp = Blueprint("concerts", __name__, url_prefix="/api/concerts")
 
 
 def _service():
