@@ -16,3 +16,8 @@ def login():
 @bp.get("/musicians")
 def musicians_page():
     return render_template("musicians.html")
+
+
+@bp.get("/concerts")
+def concerts_page():
+    return render_template("concerts.html")

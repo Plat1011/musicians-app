@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Концерты — Музыкальное агентство{% endblock %}
+
+{% block content %}
+<h2>Концерты</h2>
+
+<div id="admin-tools" style="display: none;">
+    <div class="toolbar">
+        <button id="add-btn">Добавить концерт</button>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Дата</th>
+            <th>Площадка</th>
+            <th>Город</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="concerts-tbody"></tbody>
+</table>
+
+<dialog id="form-dialog">
+    <form id="concert-form" method="dialog">
+        <h3 id="form-title">Новый концерт</h3>
+        <input type="hidden" name="id">
+        <label>Название <input name="title" required minlength="1" maxlength="128"></label>
+        <label>Дата <input name="concert_date" type="date" required></label>
+        <label>Площадка <input name="venue" maxlength="128"></label>
+        <label>Город <input name="city" maxlength="64"></label>
+        <p class="msg" id="form-msg"></p>
+        <div class="toolbar">
+            <button type="submit">Сохранить</button>
+            <button type="button" id="cancel-btn">Отмена</button>
+        </div>
+    </form>
+</dialog>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='concerts.js') }}"></script>
+{% endblock %}
