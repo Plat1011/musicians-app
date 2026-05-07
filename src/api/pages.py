@@ -21,3 +21,13 @@ def musicians_page():
 @bp.get("/concerts")
 def concerts_page():
     return render_template("concerts.html")
+
+
+@bp.get("/performances")
+def performances_page():
+    return render_template("performances.html")
+
+
+@bp.get("/instruments")
+def instruments_page():
+    return render_template("instruments.html")

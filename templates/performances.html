@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Выступления — Музыкальное агентство{% endblock %}
+
+{% block content %}
+<h2>Выступления</h2>
+
+<div id="admin-tools" style="display: none;">
+    <div class="toolbar">
+        <button id="add-btn">Добавить выступление</button>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Музыкант</th>
+            <th>Концерт</th>
+            <th>Дата</th>
+            <th>Инструмент</th>
+            <th>Гонорар</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="perf-tbody"></tbody>
+</table>
+
+<dialog id="form-dialog">
+    <form id="perf-form" method="dialog">
+        <h3>Новое выступление</h3>
+        <label>Музыкант <select name="musician_id" required></select></label>
+        <label>Концерт <select name="concert_id" required></select></label>
+        <label>Инструмент <select name="instrument_id"><option value="">—</option></select></label>
+        <label>Гонорар <input name="fee" type="number" min="0" step="0.01"></label>
+        <p class="msg" id="form-msg"></p>
+        <div class="toolbar">
+            <button type="submit">Сохранить</button>
+            <button type="button" id="cancel-btn">Отмена</button>
+        </div>
+    </form>
+</dialog>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='performances.js') }}"></script>
+{% endblock %}

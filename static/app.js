@@ -56,6 +56,7 @@ function renderNav() {
         nav.innerHTML =
             '<a href="/">Главная</a>' +
             '<a href="/musicians">Музыканты</a>' +
+            '<a href="/instruments">Инструменты</a>' +
             '<a href="/concerts">Концерты</a>' +
             '<a href="/performances">Выступления</a>' +
             '<button onclick="logout()">Выйти</button>';
