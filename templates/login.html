@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Вход — Музыкальное агентство{% endblock %}
+
+{% block content %}
+<section class="auth">
+    <h2>Вход</h2>
+    <form id="login-form">
+        <label>Логин <input name="username" required minlength="3"></label>
+        <label>Пароль <input name="password" type="password" required minlength="6"></label>
+        <button type="submit">Войти</button>
+    </form>
+
+    <h2>Регистрация</h2>
+    <form id="register-form">
+        <label>Логин <input name="username" required minlength="3"></label>
+        <label>Пароль <input name="password" type="password" required minlength="6"></label>
+        <button type="submit">Создать аккаунт</button>
+    </form>
+
+    <p id="auth-msg"></p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    if (getToken()) location.href = '/';
+
+    const msg = document.getElementById('auth-msg');
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const body = { username: fd.get('username'), password: fd.get('password') };
+        const r = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
+        if (r.ok) {
+            const data = await r.json();
+            saveSession(data.token, data.user);
+            location.href = '/';
+        } else {
+            msg.textContent = 'Неверный логин или пароль';
+        }
+    });
+
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const body = { username: fd.get('username'), password: fd.get('password') };
+        const r = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
+        if (r.status === 201) {
+            msg.textContent = 'Аккаунт создан, войдите';
+        } else if (r.status === 409) {
+            msg.textContent = 'Логин уже занят';
+        } else {
+            msg.textContent = 'Ошибка при регистрации';
+        }
+    });
+</script>
+{% endblock %}
