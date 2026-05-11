@@ -1,6 +1,6 @@
 # musicians-app
 
-Веб-приложение «Музыкальное агентство» — учёт музыкантов, инструментов, концертов и выступлений.
+Веб-приложение «Музыкальное агентство» – учёт музыкантов, инструментов, концертов и выступлений.
 
 ## Стек
 
@@ -42,14 +42,14 @@ templates/        Jinja2-шаблоны
 
 Базовые эндпоинты задания:
 
-- `GET /users` — список пользователей (in-memory)
-- `GET /users/:id` — пользователь по id
-- `POST /users` — создание пользователя
+- `GET /users` – список пользователей (in-memory)
+- `GET /users/:id` – пользователь по id
+- `POST /users` – создание пользователя
 
 Аутентификация и доступ к данным агентства:
 
-- `POST /api/auth/register` — регистрация
-- `POST /api/auth/login` — вход, возвращает токен и данные пользователя
+- `POST /api/auth/register` – регистрация
+- `POST /api/auth/login` – вход, возвращает токен и данные пользователя
 - `GET /api/musicians`, `POST /api/musicians`, `PUT /api/musicians/:id`, `DELETE /api/musicians/:id`
 - `GET /api/concerts`, `POST /api/concerts`, `PUT /api/concerts/:id`, `DELETE /api/concerts/:id`
 - `GET /api/instruments`, `POST /api/instruments`, `DELETE /api/instruments/:id`

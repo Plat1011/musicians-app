@@ -58,7 +58,7 @@ async function fillSelects() {
     const instrSel = form.instrument_id;
     musicianSel.innerHTML = "";
     concertSel.innerHTML = "";
-    instrSel.innerHTML = '<option value="">—</option>';
+    instrSel.innerHTML = '<option value="">–</option>';
     ms.forEach((m) => musicianSel.add(new Option(m.name, m.id)));
     cs.forEach((c) => concertSel.add(new Option(c.title + " (" + (c.concert_date || "") + ")", c.id)));
     is.forEach((i) => instrSel.add(new Option(i.name, i.id)));
