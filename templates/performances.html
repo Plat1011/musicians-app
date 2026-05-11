@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Выступления — Музыкальное агентство{% endblock %}
+{% block title %}Выступления – Музыкальное агентство{% endblock %}
 
 {% block content %}
 <h2>Выступления</h2>
@@ -31,7 +31,7 @@
         <h3>Новое выступление</h3>
         <label>Музыкант <select name="musician_id" required></select></label>
         <label>Концерт <select name="concert_id" required></select></label>
-        <label>Инструмент <select name="instrument_id"><option value="">—</option></select></label>
+        <label>Инструмент <select name="instrument_id"><option value="">–</option></select></label>
         <label>Гонорар <input name="fee" type="number" min="0" step="0.01"></label>
         <p class="msg" id="form-msg"></p>
         <div class="toolbar">
